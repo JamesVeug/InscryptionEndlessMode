@@ -23,15 +23,22 @@ namespace EndlessMode
         /// Total times the player has defeated a final boss and has regenerated a new run
         /// </summary>
         public static int TotalResets => m_totalResets;
+        
+        /// <summary>
+        /// Total times the player has reset the run to gain some benefit
+        /// </summary>
+        public static int TotalPrestiges => m_totalPrestiges;
 
         private static int m_currentFloor = 0;
         private static int m_totalResets = 0;
+        private static int m_totalPrestiges = 0;
         private static int m_totalFinalBossesKilled = 0;
         private static Dictionary<Opponent.Type, int> m_bossKillLookup = new Dictionary<Opponent.Type, int>();
 
         public static void SetupNewRun()
         {
             m_totalResets = 0;
+            m_totalPrestiges = 0;
             m_currentFloor = 0;
             m_totalFinalBossesKilled = 0;
             m_bossKillLookup = new Dictionary<Opponent.Type, int>();
@@ -104,6 +111,13 @@ namespace EndlessMode
                 SerializedDictionary serializedDictionary = JsonUtility.FromJson<SerializedDictionary>(json);
                 serializedDictionary.LoadIntoDictionary(m_bossKillLookup);
             }
+        }
+
+        public static void Prestige()
+        {
+            m_totalPrestiges++;
+
+            Save();
         }
     }
 }

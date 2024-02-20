@@ -95,4 +95,9 @@ public static class Endless
         
         card.AddTemporaryMod(modificationInfo);
     }
+
+    public static void Prestige()
+    {
+        RunStats.Prestige();
+    }
 }

@@ -34,4 +34,10 @@
       </Reference>
     </ItemGroup>
 
+
+    <ItemGroup>
+      <None Remove="Art\prestige.png" />
+      <Resource Include="Art\prestige.png" />
+    </ItemGroup>
+
 </Project>

@@ -27,6 +27,7 @@ namespace EndlessMode
 
 			new Harmony(PluginGuid).PatchAll();
 
+			PrestigeSequencer.Initialize();
 			Custom_AscensionStat.AddCustomStat(PluginGuid, "Final Bosses Killed", ()=>RunStats.TotalFinalBossesKilled);
 			Custom_AscensionStat.AddCustomStat(PluginGuid, "Highest Floor", ()=>RunStats.CurrentFloor+1);
 
